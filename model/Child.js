@@ -45,6 +45,31 @@ const childSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    level: {
+        type: String,
+        require: true,
+        max: 20
+    },
+    primarySchool: {
+        type: String,
+        require: true,
+        max: 20
+    },
+    class: {
+        type: String,
+        require: true,
+        max: 20
+    },
+    school: {
+        type: String,
+        require: true,
+        max: 20
+    },
+    form: {
+        type: String,
+        require: true,
+        max: 20
+    },
     photoUrl: {
         type: String,
         max: 255

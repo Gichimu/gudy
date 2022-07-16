@@ -16,6 +16,11 @@ router.post("/add", async (req, res) => {
     relation: req.body.relation,
     nokNumber: req.body.nokNumber,
     dob: req.body.dob,
+    level: req.body.level,
+    primarySchool: req.body.primarySchool,
+    class: req.body.class,
+    school: req.body.school,
+    form: req.body.form,
     photoUrl: req.body.photoUrl,
   });
   const childNameExists = await Child.findOne({
