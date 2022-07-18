@@ -66,7 +66,7 @@ router.get("/one/:id", async (req, res) => {
 // get jwt token
 router.post("/token", async (req, res) => {
     const token = jwt.sign({id: req.body.id}, process.env.SECRET);
-    res.send(token)
+    res.send(JSON.stringify(token));
 });
 
 module.exports = router;
