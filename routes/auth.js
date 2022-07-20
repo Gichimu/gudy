@@ -2,10 +2,10 @@ const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 require('dotenv').config()
 const Child = require("../model/Child");
-const verify = require("../verify");
+const verified = require("../verify");
 
 // add one child
-router.post("/add", async (req, res) => {
+router.post("/add", verified, async (req, res) => {
   const child = new Child({
     firstName: req.body.firstName.toLowerCase(),
     middleName: req.body.middleName.toLowerCase(),
@@ -66,7 +66,7 @@ router.get("/one/:id", async (req, res) => {
 // get jwt token
 router.post("/token", async (req, res) => {
     const token = jwt.sign({id: req.body.id}, process.env.SECRET);
-    res.send(JSON.stringify(token));
+    res.header('token', token).send(JSON.stringify(token));
 });
 
 module.exports = router;
